@@ -1,0 +1,23 @@
+{
+  "name": "sectores",
+  "authors": [
+    "brujo-rojas <patricio@qfactor.cl>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.0",
+    "lodash": "^4.17.10",
+    "angular-sanitize": "^1.7.0",
+    "jquery": "^3.3.1"
+  }
+}

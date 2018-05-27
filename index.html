@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en"   ng-app="irricrops">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Sectores</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body ng-controller="tableController as t">
+
+
+
+
+
+
+    <div class="irritable-flex">
+
+      <div class="corner">
+        <span>
+          Sectores
+        </span>
+      </div>
+
+
+      <div class="container">
+
+
+
+
+        <div class="header">
+          <div class="header-table" ng-repeat="item in t.items.header">
+            <div class="header-title" ng-bind-html="item.title"></div>
+            <div class="header-subtitle-container">
+              <div class="header-subtitle {{subitem.col}}" 
+                   ng-repeat="subitem in item.subitems" ng-bind-html="subitem.title">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <div class="nav-group-item" ng-repeat="equipo in t.items.equipos">
+            <div class="title-group-item">{{equipo.nombre}}</div>
+            <div class="nav-item" ng-repeat="sector in equipo.sectores">
+              <div class="light {{sector.color}}"></div>
+              <div class="title-item truncate">{{sector.nombre}}</div>
+              <div class="subtitle-item truncate">
+                {{sector.variedad}} -
+                {{sector.calidad}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="body">
+
+
+          <div class="group" ng-repeat="equipo in t.items.equipos">
+            <div class="row-sticky">
+              <div class="item">
+                {{equipo.nombre}}
+              </div>
+            </div>
+            <div class="row" ng-repeat="sector in equipo.sectores">
+              <div class="h-item" ng-repeat="item in t.items.header">
+                <div class="item {{subitem.col}}" ng-repeat="subitem in item.subitems">
+                  {{sector[subitem.v]}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="js/app.js"></script>
+
+
+  </body>
+
+</html>
